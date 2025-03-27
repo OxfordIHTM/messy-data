@@ -55,7 +55,8 @@ pop_death <- pop_death |>
     names_sep = "_"
   ) |>
   rename(pop = Pop, death = Deaths) |>
-  relocate(year, .before = sex)
+  relocate(year, .before = sex) |>
+  arrange(year)
 
 # pop <- pop_death |>
 #   select(-paste(2011:2021, "Deaths", sep = "_")) |>
@@ -74,6 +75,7 @@ pop_death <- pop_death |>
 #   mutate(year = sub(pattern = "_Deaths", replacement = "", year))
 
 # pop_death <- left_join(pop, death) |>
-#   relocate(year, .before = sex)
+#   relocate(year, .before = sex) |>
+#   arrange(year)
 
 

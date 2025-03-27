@@ -20,7 +20,7 @@ occ_health <- Map(
   cols = cols,
   col_names = FALSE
 ) |>
-  (\(x) { names(x) <- month.name[2:12]; x })() |>
+  setNames(month.name[2:12]) |>
   bind_rows(.id = "month") |>
   rename_with(
     .fn = function(x) {
