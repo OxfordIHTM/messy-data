@@ -30,7 +30,8 @@ that you can start analysing immediately, this is the exception, not the
 rule. The five most common problems with messy datasets, along with
 their remedies:
 
-• Column headers are values, not variable names • Multiple variables are
-stored in one column • Variables are stored in both rows and columns •
-Multiple types of observational units are stored in the same table • A
-single observational unit is stored in multiple tables
+  - Column headers are values, not variable names
+  - Multiple variables are stored in one column
+  - Variables are stored in both rows and columns
+  - Multiple types of observational units are stored in the same table
+  - A single observational unit is stored in multiple tables

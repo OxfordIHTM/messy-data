@@ -30,8 +30,8 @@ This repository contains data and scripts in support of discussions on data stru
 
 Real datasets can, and often do, violate the three precepts of tidy data in almost every way imaginable. While occasionally you do get a dataset that you can start analysing immediately, this is the exception, not the rule. The five most common problems with messy datasets, along with their remedies:
 
-• Column headers are values, not variable names
-• Multiple variables are stored in one column
-• Variables are stored in both rows and columns
-• Multiple types of observational units are stored in the same table
-• A single observational unit is stored in multiple tables
+* Column headers are values, not variable names
+* Multiple variables are stored in one column
+* Variables are stored in both rows and columns
+* Multiple types of observational units are stored in the same table
+* A single observational unit is stored in multiple tables
