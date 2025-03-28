@@ -63,17 +63,51 @@ mutate(year = sub(pattern = "_Deaths", replacement = "", year))
 pop_death <- left_join(pop, death)
 
 
+### Class exercise Mar 28, 2025
+library(readxl)
+library(dplyr)
+library(tidyr)
+library(ggplot2)
+library(lubridate)
+
+## Cleaning and Reading cyclones dataset ----
+
+for (i in 2:6) {
+    assign(
+      paste("sheet", i, sep = ""),
+      read_xlsx(path = "data/cyclones.xlsx", sheet = i)
+    )
+  }
+
+
+cyclones <- Map(
+  f = read_xlsx,
+  path = "data/cyclones.xlsx",
+  sheet = 2:6,
+  col_names = TRUE
+) |>
+  bind_rows()
+
+##Binding tables -------
+
+cyclones_sum <- bind_rows(sheet2, sheet3, sheet4, sheet5, sheet6) 
+
+###Summary table package -----
+table(cyclones$category_name)
+table(cyclones$category_name, cyclones$year)
 
 
 
+###plotting ----
+library(oxthema)
 
-
-
-
-
-
-
-
+cyclones |>
+  count(category_name, year) |>
+  ggplot(aes(x = year, y = n, fill = category_name)) +
+  geom_bar(position = "stack", stat = "identity") +
+  geom_violin(colour = "red", fill = "#4b876e", alpha = 0.3) +
+  geom_jitter(colour = "royalblue", size = 3, width = 0.2) +
+  display.brewer.pal(n = 8, name = 'RdBu')
 
 
 
