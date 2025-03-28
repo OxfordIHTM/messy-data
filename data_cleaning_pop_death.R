@@ -48,15 +48,15 @@ pop_death <- bind_rows(sheet1, sheet2, .id = "sex") |>
   mutate(sex = ifelse(sex == 1, "Male", "Female"))
 
 ### Alternative pivot longer approach that can replace lines 60 to 77 ----
-pop_death <- pop_death |>
-  pivot_longer(
-    cols = `2011_Pop`:`2021_Deaths`, 
-    names_to = c("year", ".value"), 
-    names_sep = "_"
-  ) |>
-  rename(pop = Pop, death = Deaths) |>
-  relocate(year, .before = sex) |>
-  arrange(year)
+# pop_death <- pop_death |>
+#   pivot_longer(
+#     cols = `2011_Pop`:`2021_Deaths`, 
+#     names_to = c("year", ".value"), 
+#     names_sep = "_"
+#   ) |>
+#   rename(pop = Pop, death = Deaths) |>
+#   relocate(year, .before = sex) |>
+#   arrange(year)
 
 # pop <- pop_death |>
 #   select(-paste(2011:2021, "Deaths", sep = "_")) |>
@@ -65,7 +65,7 @@ pop_death <- pop_death |>
 #     names_to = "year", values_to = "pop"
 #   ) |>
 #   mutate(year = sub(pattern = "_Pop", replacement = "", year))
-
+# 
 # death <- pop_death |>
 #   select(-paste(2011:2021, "Pop", sep = "_")) |>
 #   pivot_longer(
@@ -73,7 +73,7 @@ pop_death <- pop_death |>
 #     names_to = "year", values_to = "death"
 #   ) |>
 #   mutate(year = sub(pattern = "_Deaths", replacement = "", year))
-
+# 
 # pop_death <- left_join(pop, death) |>
 #   relocate(year, .before = sex) |>
 #   arrange(year)
