@@ -12,15 +12,13 @@ library(tidyverse) # Install lines 5-8 packages in one step
 ## Read data sets needed----------------
 
 
-sheet1 <- read_excel("data/pop_death1.xlsx", 
-                                   sheet = "2011-21_M")
+sheet1 <- read_xlsx("data/pop_death.xlsx", sheet = 1, start_row = 2)
 
-sheet2 <- read_excel("data/pop_death1.xlsx", 
-                                   sheet = "2011_21_F")
+sheet2 <- read_xlsx("data/pop_death.xlsx", sheet = 2, start_row = 2)
 
 for (i in 1:2) {
   assign(
-    paste0("sheet", i) = read_xlsx(file = "data/pop_death1.xlsx")
+    paste0("sheet", i) = read_xlsx(file = "data/pop_death.xlsx")
   )
   }
 ### Rename sheet columns labels for r binding-----
