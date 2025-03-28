@@ -41,3 +41,5 @@ occ_health <- occ_health |>
     cols = `Male_15-24`:`Female_65+`, 
     names_to = c("sex", "age_group"), values_to = "n", names_sep = "_"
   )
+
+
