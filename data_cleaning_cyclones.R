@@ -2,6 +2,7 @@
 
 ## Load libraries ----
 library(readxl)
+library(openxlsx2)
 library(dplyr)
 library(tidyr)
 library(ggplot2)
