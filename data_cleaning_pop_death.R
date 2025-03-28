@@ -75,7 +75,7 @@ pop_death <- pop_death |>
 #   mutate(year = sub(pattern = "_Deaths", replacement = "", year))
 
 # pop_death <- left_join(pop, death) |>
-#   relocate(year, .before = sex) |>
-#   arrange(year)
+#  relocate(year, .before = sex) |>
+#  arrange(year)
 
 
