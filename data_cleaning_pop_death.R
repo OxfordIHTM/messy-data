@@ -58,6 +58,7 @@ pop_death <- pop_death |>
   relocate(year, .before = sex) |>
   arrange(year)
 
+
 # pop <- pop_death |>
 #   select(-paste(2011:2021, "Deaths", sep = "_")) |>
 #   pivot_longer(
@@ -65,7 +66,7 @@ pop_death <- pop_death |>
 #     names_to = "year", values_to = "pop"
 #   ) |>
 #   mutate(year = sub(pattern = "_Pop", replacement = "", year))
-
+# 
 # death <- pop_death |>
 #   select(-paste(2011:2021, "Pop", sep = "_")) |>
 #   pivot_longer(
@@ -73,9 +74,7 @@ pop_death <- pop_death |>
 #     names_to = "year", values_to = "death"
 #   ) |>
 #   mutate(year = sub(pattern = "_Deaths", replacement = "", year))
-
+# 
 # pop_death <- left_join(pop, death) |>
 #   relocate(year, .before = sex) |>
 #   arrange(year)
-
-
