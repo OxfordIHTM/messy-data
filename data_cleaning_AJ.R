@@ -100,14 +100,15 @@ table(cyclones$category_name, cyclones$year)
 
 ###plotting ----
 library(oxthema)
-
+library(RColorBrewer)
+?brewer.pal
 cyclones |>
-  count(category_name, year) |>
-  ggplot(aes(x = year, y = n, fill = category_name)) +
-  geom_bar(position = "stack", stat = "identity") +
+  # count(category_name, year) |>
+  #ggplot(aes(x = year, y = n, fill = category_name)) +
+  ggplot(aes(x = year, y = speed, group = category_name)) +
+  # geom_bar(position = "stack", stat = "identity") +
   geom_violin(colour = "red", fill = "#4b876e", alpha = 0.3) +
-  geom_jitter(colour = "royalblue", size = 3, width = 0.2) +
-  display.brewer.pal(n = 8, name = 'RdBu')
+  geom_jitter(colour = "royalblue", size = 3, width = 0.2)
 
 
 
