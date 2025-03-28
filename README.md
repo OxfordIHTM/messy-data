@@ -35,3 +35,87 @@ their remedies:
   - Variables are stored in both rows and columns
   - Multiple types of observational units are stored in the same table
   - A single observational unit is stored in multiple tables
+
+The following messy datasets are available from this repository:
+
+1.  Tropical cyclones of the Philippines
+
+This dataset is found at `data/cyclones.xlsx`.
+
+This is a dataset that has been used for teaching in class previously.
+In the `XLSX` file, there are 6 worksheets with the first being the
+original *long* format dataset provided to the class. To use as an
+example in this exercise, this dataset has been split into 5 worksheets
+for each of the year that tropical cyclones data is avaiable for (from
+2017 to 2021). This is a good example of a dataset with *a single
+observational unit stored in multiple tables*.
+
+The R script `data_cleaning_cyclones.R` demonstrates how you can
+re-organise this dataset to meet *tidy* criteria.
+
+2.  Survey of IHTM 2025-2026 students
+
+This dataset is found at `data/ihtm_2025.xlsx`.
+
+This is a dataset that was created through a pretend survey exercise
+among the IHTM 2025-2026 students during one of the classes. Each
+student present on the day were asked to fill in their responses via an
+online `XLSX` spreadsheet. The purpose of the exercise was to
+demonstrate common data entry errors that can happen when using a
+spreadsheet as a data colletion tool.
+
+The R script `data_cleaning_ihtm.R` demonstrates how this dataset can be
+cleaned.
+
+3.  Occupational health services for 2021
+
+This dataset is found at `data/occupational_health.xlsx`.
+
+This is a dataset from actual Ministry of Health records of a particular
+country for records of occupational health services availed by the
+population for each month of 2021. This is a good example of a dataset
+with *column headers as values rather than variable names* and with
+*multiple variables stored in one column*.
+
+The R script `data_cleaning_oh.R` demonstrates how you can re-organise
+this dataset to meet *tidy* criteria.
+
+4.  Population and number of deaths by sex and age in years from 2011 to
+    2021
+
+This dataset is found at `data/pop_death.xlsx`.
+
+This is a dataset from actual Ministry of Health information system of a
+particular country for population and number of deaths by sex and age in
+years from 2011 to 2021 used to calculate lifetables for the country.
+This is a good example of a dataset with *column headers as values
+rather than variable names*, with *multiple variables stored in one
+column*, and with *a single observational unit stored in multiple
+tables*.
+
+The R script `data_cleaning_pop_death.R` demonstrates how this dataset
+can be cleaned.
+
+5.  Vaccine study of school-going adolescents
+
+This dataset is found at `data/vaccine.xlsx`.
+
+This is a dataset from an actual Ministry of Health vaccine study of
+school going adolescents in a particular country to test the efficacy of
+COVID vaccine. This is a good example of a dataset with *multiple
+variables stored in one column*.
+
+The R script `data_cleaning_vaccine.R` demonstrates how this dataset can
+be cleaned.
+
+## References
+
+Wickham, H. . (2014). Tidy Data. *Journal of Statistical Software*,
+59(10), 1–23. <https://doi.org/10.18637/jss.v059.i10>
+
+Wickham H, Averick M, Bryan J, Chang W, McGowan LD, François R,
+Grolemund G, Hayes A, Henry L, Hester J, Kuhn M, Pedersen TL, Miller E,
+Bache SM, Müller K, Ooms J, Robinson D, Seidel DP, Spinu V, Takahashi K,
+Vaughan D, Wilke C, Woo K, Yutani H (2019). “Welcome to the tidyverse.”
+*Journal of Open Source Software*, 4(43), 1686.
+<doi:10.21105/joss.01686>.
