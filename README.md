@@ -53,12 +53,12 @@ observational unit stored in multiple tables*.
 The R script `data_cleaning_cyclones.R` demonstrates how you can
 re-organise this dataset to meet *tidy* criteria.
 
-### Survey of IHTM 2025-2026 students
+### Survey of IHTM 2024-2025 students
 
 This dataset is found at `data/ihtm_2025.xlsx`.
 
 This is a dataset that was created through a pretend survey exercise
-among the IHTM 2025-2026 students during one of the classes. Each
+among the IHTM 2024-2025 students during one of the classes. Each
 student present on the day were asked to fill in their responses via an
 online `XLSX` spreadsheet. The purpose of the exercise was to
 demonstrate common data entry errors that can happen when using a
