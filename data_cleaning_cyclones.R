@@ -1,8 +1,7 @@
 # Read and process cyclones data -----------------------------------------------
 
 ## Load libraries ----
-library(readxl)
-library(openxlsx2)
+library(readxl)     ## note here that I use readxl package rather than openxlsx2
 library(dplyr)
 library(tidyr)
 library(ggplot2)
@@ -11,11 +10,8 @@ library(lubridate)
 
 ## Read cyclones dataset ----
 
-### Get metadata of cyclones.xlsx ----
-wb <- wb_load("data/cyclones.xlsx")
-
 ### Get sheet names for each year dataset only ----
-sheet_names <- wb_get_sheet_names(wb) |>
+sheet_names <- excel_sheets("data/cyclones.xlsx") |>
   (\(x) x[2:length(x)])()
 
 ### Read data from each year sheet and concatenate ----
@@ -89,32 +85,6 @@ cyclones |>
     panel.grid.minor.x = element_blank(),
     panel.grid.major.y = element_blank(),
     panel.grid.minor.y = element_blank()
-  )
-
-### Plot cyclone speed by presssure ----
-cyclones |>
-  dplyr::mutate(year = factor(year)) |>
-  ggplot(mapping = aes(x = speed, y = pressure)) +
-  geom_point(mapping = aes(colour = category_name), size = 3, alpha = 0.5) +
-  scale_colour_manual(
-    name = NULL,
-    values = c("#9c5e60", "#4b876e", "#465b92", "#e5be72", "#5d0505")
-  ) +
-  labs(
-    title = "Cyclone maximum sustained wind speed and maximum central pressure",
-    subtitle = "By cyclone categories and year",
-    x = "wind speed (km/h)",
-    y = "central pressure (hPa)"
-  ) +
-  facet_wrap(. ~ year, ncol = 5) +
-  theme_bw() +
-  theme(
-    legend.position = "top",
-    strip.background = element_rect(
-      fill = alpha("#465b92", 0.7), colour = "#465b92"
-    ),
-    panel.border = element_rect(colour = "#465b92"),
-    panel.grid.minor = element_blank()
   )
 
 ### Plot cyclone speed by presssure ----
