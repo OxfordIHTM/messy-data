@@ -6,6 +6,7 @@ library(dplyr)
 library(tidyr)
 library(ggplot2)
 library(truncreg)
+library(gtsummary)
 library(oxthema)
 
 
@@ -116,7 +117,7 @@ vaccine_clean |>
   geom_boxplot(
     colour = get_oxford_colour("Oxford blue"),
     fill = get_oxford_colour("Oxford blue"),
-    linewidth = 1, alpha = 0.5
+    linewidth = 1, alpha = 0.3
   ) +
   scale_y_continuous(breaks = seq(from = 0, to = 4, by = 0.5)) +
   labs(
@@ -138,13 +139,13 @@ vaccine_clean |>
   geom_violin(
     colour = get_oxford_colour("Oxford blue"),
     fill = get_oxford_colour("Oxford blue"),
-    linewidth = 1, alpha = 0.5
+    linewidth = 1, alpha = 0.3
   ) +
   geom_jitter(
     width = 0.2, 
     colour = get_oxford_colours("Oxford green"), 
     fill = get_oxford_colour("Oxford green"),
-    alpha = 0.5, size = 3
+    size = 2
   ) +
   scale_y_continuous(breaks = seq(from = 0, to = 4, by = 0.5)) +
   labs(

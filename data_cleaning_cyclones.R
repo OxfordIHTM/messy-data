@@ -6,6 +6,7 @@ library(dplyr)
 library(tidyr)
 library(ggplot2)
 library(lubridate)
+library(gtsummary)
 
 
 ## Read cyclones dataset ----
@@ -44,6 +45,20 @@ cyclones <- cyclones |>
 cyclones |>
   count(year, category_name) |>
   pivot_wider(names_from = year, values_from = n)
+
+cyclones |>
+  mutate(duration_hours = as.numeric(end - start)) |>
+  tbl_summary(
+    by = category_name,
+    label = list(
+      year = "Year",
+      duration_hours = "Duration (hours)",
+      pressure = "Presssure (hPa)",
+      speed = "Speed (km/h)"
+    ),
+    include = c(year, duration_hours, pressure, speed)
+  ) |>
+  bold_labels()
 
 ### Get cyclones category mean pressure and speed ----
 cyclones |>
