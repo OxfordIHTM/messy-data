@@ -38,7 +38,7 @@ their remedies:
 
 The following messy datasets are available from this repository:
 
-1.  Tropical cyclones of the Philippines
+### Tropical cyclones of the Philippines
 
 This dataset is found at `data/cyclones.xlsx`.
 
@@ -53,7 +53,7 @@ observational unit stored in multiple tables*.
 The R script `data_cleaning_cyclones.R` demonstrates how you can
 re-organise this dataset to meet *tidy* criteria.
 
-2.  Survey of IHTM 2025-2026 students
+### Survey of IHTM 2025-2026 students
 
 This dataset is found at `data/ihtm_2025.xlsx`.
 
@@ -67,7 +67,7 @@ spreadsheet as a data colletion tool.
 The R script `data_cleaning_ihtm.R` demonstrates how this dataset can be
 cleaned.
 
-3.  Occupational health services for 2021
+### Occupational health services for 2021
 
 This dataset is found at `data/occupational_health.xlsx`.
 
@@ -80,8 +80,7 @@ with *column headers as values rather than variable names* and with
 The R script `data_cleaning_oh.R` demonstrates how you can re-organise
 this dataset to meet *tidy* criteria.
 
-4.  Population and number of deaths by sex and age in years from 2011 to
-    2021
+### Population and number of deaths by sex and age in years from 2011 to 2021
 
 This dataset is found at `data/pop_death.xlsx`.
 
@@ -96,7 +95,7 @@ tables*.
 The R script `data_cleaning_pop_death.R` demonstrates how this dataset
 can be cleaned.
 
-5.  Vaccine study of school-going adolescents
+### Vaccine study of school-going adolescents
 
 This dataset is found at `data/vaccine.xlsx`.
 
