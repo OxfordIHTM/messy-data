@@ -6,6 +6,7 @@ library(dplyr)
 library(tidyr)
 library(ggplot2)
 #library(tidyverse)
+library(oxthema)
 
 
 ## Read datasets needed ----
@@ -81,7 +82,7 @@ pop_death <- pop_death |>
 
 ## Lifetable analysis ----
 
-### plot lifetables
+### plot lifetables for 2011, 2016, 2021 ----
 
 rbind(
   pop_death,
@@ -96,22 +97,22 @@ rbind(
     mutate(sex = ifelse(sex == "total", "Total"))
 ) |>
   mutate(death_rate = death / pop) |>
-  ggplot(mapping = aes(x = age, y = death_rate, colour = year)) +
+  filter(year %in% c(2011, 2016, 2021)) |>
+  ggplot(mapping = aes(x = age, y = log(death_rate), colour = year)) +
   geom_smooth(method = "gam", se = FALSE) +
+  scale_colour_manual(
+    name = NULL, values = c(get_oxford_colours(pattern = "orange|royal|sage"))
+  ) +
   scale_x_continuous(
-    breaks = seq(from = 0, to = 85, by = 10), limits = c(0, 85)
+    breaks = seq(from = 0, to = 85, by = 5), limits = c(0, 85)
   ) +
-  scale_y_continuous(
-    breaks = seq(from = 0, to = 0.3, by = 0.05), limits = c(0, 0.3)
+  labs(
+    title = "Mortality rate by one year age groups",
+    subtitle = "Years 2011, 2016, and 2021",
+    x = "Age (single years)",
+    y = "Death rate (log)"
   ) +
-  facet_wrap(. ~ sex, ncol = 5) +
-  theme_oxford(grid = "XxYy") +
-  theme(
-    panel.border = element_rect(
-      colour = get_oxford_colour("Oxford blue"), fill = NA, linewidth = 1
-    ),
-    legend.position = "top"
-  )
+  theme_oxford(grid = "XxYy")
 
 
 

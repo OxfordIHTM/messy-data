@@ -193,6 +193,9 @@ cyclones |>
   ggplot(mapping = aes(x = year, y = speed)) +
   geom_violin(colour = "#4b876e", fill = "#4b876e", alpha = 0.3) +
   geom_jitter(colour = "#4b876e", size = 3, width = 0.2) +
+  scale_y_continuous(
+    breaks = seq(from = 0, to = 200, by = 25), limits = c(0, 200)
+  ) +
   labs(
     title = "Distribution of tropical cyclone maximum sustained wind speed",
     subtitle = "2017-2021",
