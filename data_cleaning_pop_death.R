@@ -56,7 +56,7 @@ pop_death <- pop_death |>
   ) |>
   rename(pop = Pop, death = Deaths) |>
   relocate(year, .before = sex) |>
-  arrange(year)
+  arrange(sex, year)
 
 ### Pivot longer approach initially designed in class ----
 # pop <- pop_death |>
@@ -78,5 +78,41 @@ pop_death <- pop_death |>
 # pop_death <- left_join(pop, death) |>
 #   relocate(year, .before = sex) |>
 #   arrange(year)
+
+## Lifetable analysis ----
+
+### plot lifetables
+
+rbind(
+  pop_death,
+  pop_death |>
+    summarise(
+      total_pop = sum(pop), total_death = sum(death), .by = c(year, age)
+    ) |>
+    pivot_longer(
+      total_pop:total_death, names_to = c("sex", ".value"), names_sep = "_"
+    ) |>
+    relocate(sex, .before = age) |>
+    mutate(sex = ifelse(sex == "total", "Total"))
+) |>
+  mutate(death_rate = death / pop) |>
+  ggplot(mapping = aes(x = age, y = death_rate, colour = year)) +
+  geom_smooth(method = "gam", se = FALSE) +
+  scale_x_continuous(
+    breaks = seq(from = 0, to = 85, by = 10), limits = c(0, 85)
+  ) +
+  scale_y_continuous(
+    breaks = seq(from = 0, to = 0.3, by = 0.05), limits = c(0, 0.3)
+  ) +
+  facet_wrap(. ~ sex, ncol = 5) +
+  theme_oxford(grid = "XxYy") +
+  theme(
+    panel.border = element_rect(
+      colour = get_oxford_colour("Oxford blue"), fill = NA, linewidth = 1
+    ),
+    legend.position = "top"
+  )
+
+
 
 
