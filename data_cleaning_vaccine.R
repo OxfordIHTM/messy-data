@@ -117,7 +117,7 @@ vaccine_clean |>
   geom_boxplot(
     colour = get_oxford_colour("Oxford blue"),
     fill = get_oxford_colour("Oxford blue"),
-    linewidth = 1, alpha = 0.3
+    linewidth = 0.5, alpha = 0.3
   ) +
   scale_y_continuous(breaks = seq(from = 0, to = 4, by = 0.5)) +
   labs(
@@ -139,12 +139,12 @@ vaccine_clean |>
   geom_violin(
     colour = get_oxford_colour("Oxford blue"),
     fill = get_oxford_colour("Oxford blue"),
-    linewidth = 1, alpha = 0.3
+    linewidth = 0.5, alpha = 0.3
   ) +
   geom_jitter(
     width = 0.2, 
-    colour = get_oxford_colours("Oxford green"), 
-    fill = get_oxford_colour("Oxford green"),
+    colour = get_oxford_colours("Oxford blue"), 
+    fill = get_oxford_colour("Oxford blue"),
     size = 2
   ) +
   scale_y_continuous(breaks = seq(from = 0, to = 4, by = 0.5)) +
