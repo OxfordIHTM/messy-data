@@ -26,6 +26,13 @@ cyclones <- Map(
 ) |>
   bind_rows()
 
+### Above code gives an error, so I am trying this.
+cyclones <- Map(function(sheet) {
+  readxl::read_xlsx(path = "data/cyclones.xlsx", sheet = sheet)
+}, sheet = sheet_names) |>
+  bind_rows()
+
+
 ### Set category code and category name into factors and date-time variables ----
 cyclones <- cyclones |>
   mutate(
@@ -215,3 +222,5 @@ cyclones |>
   ) +
   theme_minimal() +
   theme(panel.grid.major.x = element_blank())
+
+
